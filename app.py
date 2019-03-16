@@ -53,7 +53,7 @@ def requirements():
     data = json.loads(request.data)
     inventory = data_fetcher.get_car_inventory(price_low=data['low'], price_high=data['high'], car_type=data['type'])
 
-    return jsonify(inventory)
+    return inventory
 
 
 # @app.route("/car_info/<int:car_id>", methods=['GET'])

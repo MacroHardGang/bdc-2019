@@ -9,32 +9,8 @@ app.controller("bdcController", function($scope, $http) {
     $scope.showQuestionnaire = false;
     $scope.showCars = false;
 
-    $scope.results = [
-        {
-            'photo': 'https://tinyurl.com/y28rotvo',
-            'model': 'Honda Civic',
-            'price': '$500',
-            'year': '2015'
-        },
-        {
-            'photo': 'https://tinyurl.com/y28rotvo',
-            'model': 'Honda Civic',
-            'price': '$500',
-            'year': '2015'
-        },
-        {
-            'photo': 'https://tinyurl.com/y28rotvo',
-            'model': 'Honda Civic',
-            'price': '$500',
-            'year': '2015'
-        },
-        {
-            'photo': 'https://tinyurl.com/y28rotvo',
-            'model': 'Honda Civic',
-            'price': '$500',
-            'year': '2015'
-        }
-    ]
+    $scope.results = []
+
 
     $scope.showQuestionnaireButton = function() {
         $scope.showQuestionnaire = true;
@@ -46,16 +22,15 @@ app.controller("bdcController", function($scope, $http) {
 
         $http
         .post("http://localhost:5000/requirements", $scope.requirementsFormData)
-        .success(function(result) {
+        .success(function(results) {
             $scope.requirementsFormData = {};
 
-            var results = JSON.parse(result);
             for(var i=0;i<18;i++) {
                 var car = {
                     'photo': 'https://tinyurl.com/y28rotvo',
-                    'model': results.inventory_make_id,
-                    'year': results.car_year,
-                    'price': results.price
+                    'model': results[i].inventory_make + ' ' + results[i].inventory_model,
+                    'year': results[i].car_year,
+                    'price': results[i].price
                 };
                 $scope.results.push(car);
             }

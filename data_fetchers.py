@@ -1,4 +1,4 @@
-import MySQLdb
+import pymysql
 import pandas as pd
 pd.set_option('max_columns', None)
 
@@ -7,7 +7,7 @@ from IPython import embed
 
 class DataFetcher:
 
-    def __init__(self, host, user, passwd, db=None, port=None):
+    def __init__(self, host, user, password, db=None, port=None):
         """
         Connects to the hackathon MySql database
         :param host: The hostname
@@ -16,10 +16,10 @@ class DataFetcher:
         :param passwd: Password
         :param db: Database name
         """
-        self.db = MySQLdb.connect(
+        self.db = pymysql.connect(
             host=host,
             user=user,
-            passwd=passwd,
+            password=password,
             db=db,
             port=port,
         )
@@ -43,15 +43,15 @@ class DataFetcher:
         """
 
         # Retrieve data
-        self.db.query(query_string)
-        res = list(self.db.store_result().fetch_row(0))  # Fetches all rows
+        cursor = self.db.cursor()
+        cursor.execute(query_string)
+        res = list(cursor.fetchall())
 
         if as_df:
             # If true, return as pandas data frame
-            # Retrieve column names
             column_query = 'describe {}'.format(table)
-            self.db.query(column_query)
-            columns = self.db.store_result().fetch_row(0)
+            cursor.execute(column_query)
+            columns = cursor.fetchall()
             columns = [r[0] for r in columns]
 
             # Make data frame

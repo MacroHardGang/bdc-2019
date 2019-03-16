@@ -28,15 +28,15 @@ app = Flask(__name__, template_folder='templates')
 # app.json_encoder = MyJSONEncoder
 # CORS(app)
 
-# # Setup data fetcher
-# # TODO: Move to config file
-# data_fetcher = DataFetcher(
-#     host="hackathon-db.bdc.n360.io",
-#     user="events",
-#     passwd="Hack@th0n2019",
-#     port=3306,
-#     db="hackathon",
-# )
+# Setup data fetcher
+# TODO: Move to config file
+data_fetcher = DataFetcher(
+    host="hackathon-db.bdc.n360.io",
+    user="events",
+    password="Hack@th0n2019",
+    port=3306,
+    db="hackathon",
+)
 
 
 @app.route("/")
@@ -51,10 +51,10 @@ def index():
 #     k1 = MeanShift().fit(X=X)
 #     return k1.predict(X)
 
-# @app.route("/requirements", methods=['POST'])
-# def requirements():
-#     data = json.loads(request.data)
-#     inventory = data_fetcher.get_car_inventory(price_low=data['low'], price_high=data['high'])
+@app.route("/requirements", methods=['POST'])
+def requirements():
+    data = json.loads(request.data)
+    inventory = data_fetcher.get_car_inventory(price_low=data['low'], price_high=data['high'], as_df=False)
 
 #     # ML code goes here
 #     clu_labels = MSCluster(inventory)

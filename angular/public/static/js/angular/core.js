@@ -52,7 +52,7 @@ app.controller("bdcController", function($scope, $http) {
         .post("http://localhost:5000/requirements", $scope.requirementsFormData)
         .success(function(result) {
             $scope.requirementsFormData = {};
-            console.log(results)
+            console.log(JSON.parse(result))
         });
 
     };

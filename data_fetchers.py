@@ -118,7 +118,7 @@ class DataFetcher:
         query = '''
             SELECT * FROM car_inventory
             WHERE price BETWEEN {price_low} AND {price_high}
-            AND LOWER(inventory_frame_style) = {car_type}
+            AND LOWER(inventory_frame_style) LIKE "{car_type}"
             AND date_sold IS NULL;
         '''.format(
             price_low=kwargs['price_low'],
@@ -131,7 +131,7 @@ class DataFetcher:
             labels = self._MSCluster(res)
             res['LABEL'] = labels
             res = res.groupby('LABEL', as_index=False).apply(lambda obj: obj.loc[np.random.choice(obj.index, 10, False),:])
-            res = res.to_json()
+            res = res.to_json(orient="records")
 
         return res
 

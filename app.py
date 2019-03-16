@@ -1,6 +1,7 @@
 import decimal
 import flask
 import json
+import pandas as pd
 
 from data_fetchers import DataFetcher
 from flask import (
@@ -10,6 +11,7 @@ from flask import (
     render_template
 )
 from flask_cors import CORS
+from sklearn.cluster import MeanShift
 from IPython import embed
 
 
@@ -44,11 +46,19 @@ def index():
     '''
     return render_template('index.html')
 
+def MSCluster(df):
+    X = pd.as_matrix(df)
+    k1 = MeanShift().fit(X=X)
+    return k1.predict(X)
 
 @app.route("/requirements", methods=['POST'])
 def requirements():
     data = json.loads(request.data)
-    inventory = data_fetcher.get_car_inventory(price_low=data['low'], price_high=data['high'], as_df=False)
+    inventory = data_fetcher.get_car_inventory(price_low=data['low'], price_high=data['high'])
+
+    # ML code goes here
+    clu_labels = MSCluster(inventory)
+
 
     return jsonify(inventory)
 

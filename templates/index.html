@@ -45,16 +45,15 @@
 	<div class="row">
 		<h2 class="text-center">Answer some questions so we can know you better</h2>
 		<form class="contact100-form validate-form">
-			<legend>
+			<legend class="input-label">
 				Price Range
 			</legend>
             <div class="wrap-input100 validate-input" data-validate="Name is required">
-                <input class="input100" type="number" name="price-range-max" placeholder="MIN" step="0.01"/>
-                <input class="input100" type="number" name="price-range-min" placeholder="MAX" step="0.01"/>
+                <input class="input100" type="number" name="price-range-max" min="0" placeholder="MIN" step="1000"/>
+                <input class="input100" type="number" name="price-range-min" placeholder="MAX" step="1000"/>
 			</div>
-			
-			<fieldset>
-				<legend>
+		
+				<legend class="input-label">
 					Type of Car 
 				</legend>
 				<div class="row">

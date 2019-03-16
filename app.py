@@ -27,6 +27,7 @@ class MyJSONEncoder(flask.json.JSONEncoder):
 app = Flask(__name__, template_folder='templates')
 app.json_encoder = MyJSONEncoder
 CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 # App configs
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
@@ -71,6 +72,14 @@ def car_info(car_id):
     info = data_fetcher.get_car_info(car_id)
 
     return jsonify(info)
+
+
+@app.after_request
+def after_request(response):
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+    response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE')
+    return response
 
 
 if __name__ == '__main__':

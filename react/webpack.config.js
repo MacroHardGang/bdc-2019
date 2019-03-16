@@ -9,7 +9,7 @@ var config = {
   },
   mode: 'development',
   devServer: {
-    inline: true,
+    inline: false,
     port: 3000
   },
   module: {
@@ -17,7 +17,7 @@ var config = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
+        loader: 'babel-loader', 
         query: {
           presets: ['es2015', 'react']
         }

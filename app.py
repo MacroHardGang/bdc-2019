@@ -1,11 +1,8 @@
-import requests
+import data_fetchers
 
 from flask import (
-    Flask,
-    request
+    Flask
 )
-
-from IPython import embed
 
 app = Flask(__name__)
 
@@ -15,7 +12,8 @@ def index():
 
 @app.route("/requirements", methods=['POST'])
 def requirements():
-    embed()
+    inventory = data_fetchers.get_car_inventory()
+    return inventory
 
 
 if __name__ == '__main__':

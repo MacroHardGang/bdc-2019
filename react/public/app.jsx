@@ -1,7 +1,7 @@
 import React from 'react'
 
 import HomePage from './components/home.jsx'
-import RequirementsPage from './components/requirements.jsx'
+import QuestionairePage from './components/questionaire.jsx'
 import SelectionPage from './components/selection.jsx'
 import ResultsPage from './components/results.jsx'
 
@@ -20,8 +20,8 @@ class App extends React.Component {
       <Router>
           <div>
               <div id="content-wrapper">
-                <Route path="/" exact={true} component={HomePage}/>
-                <Route path="/requirements" exact={true} component={RequirementsPage} />
+                <Route path="/" exact={true} component={QuestionairePage}/>
+                <Route path="/questionaire" exact={true} component={QuestionairePage} />
                 <Route path="/selection" exact={true} component={SelectionPage} />
                 <Route path="/results" exact={true} component={ResultsPage} />
               </div>

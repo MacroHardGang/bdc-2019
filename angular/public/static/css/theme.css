@@ -546,3 +546,44 @@ a.btn:hover {
 	-moz-transition:all .2s ease-in-out;
 	transition:all .2s ease-in-out;
 }
+
+
+#output .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    margin: 0 30px;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  #output .title {
+    color: grey;
+    font-size: 18px;
+  }
+  
+  #output button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+
+  #output .card h1 { 
+      margin: 0;
+  }
+
+  #output .card p {
+      text-align: left; 
+      line-height: 2em;
+      font-size: 1.1em;
+      padding: 0;
+      margin: 0;
+
+  }

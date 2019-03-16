@@ -9,6 +9,37 @@ app.controller("bdcController", function($scope, $http) {
     $scope.showQuestionnaire = false;
     $scope.showCars = false;
 
+    $scope.results = [
+        {
+            'id': '0',
+            'photo': 'https://tinyurl.com/y28rotvo',
+            'model': 'Honda Civic',
+            'price': '$500',
+            'year': '2015'
+        },
+        {
+            'id': '1',
+            'photo': 'https://tinyurl.com/y28rotvo',
+            'model': 'Honda Civic',
+            'price': '$500',
+            'year': '2015'
+        },
+        {
+            'id': '2',
+            'photo': 'https://tinyurl.com/y28rotvo',
+            'model': 'Honda Civic',
+            'price': '$500',
+            'year': '2015'
+        },
+        {
+            'id': '3',
+            'photo': 'https://tinyurl.com/y28rotvo',
+            'model': 'Honda Civic',
+            'price': '$500',
+            'year': '2015'
+        }
+    ]
+
     $scope.showQuestionnaireButton = function() {
         $scope.showQuestionnaire = true;
     };

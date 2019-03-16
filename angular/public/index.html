@@ -132,18 +132,11 @@
 	<h2 class="text-center">Cars that match you the best</h2>
 
 	<div class="row">
-		<div class="col-md-4 card">
+		<div class="col-md-4 card" ng-repeat="car in results">
 			<img src="https://tinyurl.com/y28rotvo" alt="John">
-			<h1>John Doe</h1>
-			<p class="title">CEO & Founder, Example</p>
-			<p>Harvard University</p>
-		</div>
-
-		<div class="col-md-4 card">
-			<img src="https://tinyurl.com/y28rotvo" alt="John">
-			<h1>John Doe</h1>
-			<p class="title">CEO & Founder, Example</p>
-			<p>Harvard University</p>
+			<h1>Model: {{ car.model }}</h1>
+			<p><b>Price:</b> {{ car.price }} </p>
+			<p><b>Year:</b> {{ car.year }}</p>
 		</div>
 	</div>
 

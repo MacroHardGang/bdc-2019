@@ -14,7 +14,6 @@ class QuestionairePage extends React.Component {
                         <div className="wrap-input100 validate-input" data-validate="Name is required">
                             <span className="label-input100">Price Range</span>
                             <input className="input100" type="number" name="price-range-max" placeholder="MIN" step="0.01"/>
-                            
                             <input className="input100" type="number" name="price-range-min" placeholder="MAX" step="0.01"/>
                         </div>
 

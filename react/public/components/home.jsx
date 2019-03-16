@@ -1,5 +1,5 @@
 import React from 'react'
-import RequirementsPage from './requirements.jsx'
+import QuestionairePage from './questionaire.jsx'
 
 class HomePage extends React.Component {
 
@@ -47,7 +47,7 @@ class HomePage extends React.Component {
                     </div>
                 </div>
                 <div id="questionnaire">
-                    {this.state.showQuestionnaire ? <RequirementsPage></RequirementsPage> : ''}
+                    {this.state.showQuestionnaire ? <QuestionairePage></QuestionairePage> : ''}
                 </div>
             </div>
         )

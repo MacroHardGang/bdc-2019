@@ -71,7 +71,7 @@ class DataFetcher:
         res = self._query(query, 'car_inventory', as_df=kwargs.get('as_df', True))
 
         return res
-    
+
     def get_car_info(self, car_id):
         query = '''
             SELECT * FROM car_inventory
@@ -79,6 +79,6 @@ class DataFetcher:
         '''.format(
             car_id
         )
-        res = self._query(query, 'car_inventory', as_df=False)
+        res = self._query(query, 'car_inventory', as_df=False)[0]
 
         return res

@@ -3,33 +3,35 @@ import flask
 import json
 import pandas as pd
 
-# from data_fetchers import DataFetcher
+from data_fetchers import DataFetcher
 from flask import (
     Flask,
     jsonify,
     request,
     render_template
 )
-# from flask_cors import CORS
-# from sklearn.cluster import MeanShift
-# from IPython import embed
+from flask_cors import CORS
+from sklearn.cluster import MeanShift
+from IPython import embed
 
 
-# class MyJSONEncoder(flask.json.JSONEncoder):
-#     def default(self, obj):
-#         if isinstance(obj, decimal.Decimal):
-#             # Convert decimal instances to strings.
-#             return str(obj)
-#         return super(MyJSONEncoder, self).default(obj)
+class MyJSONEncoder(flask.json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, decimal.Decimal):
+            # Convert decimal instances to strings.
+            return str(obj)
+        return super(MyJSONEncoder, self).default(obj)
 
 
-# # Setup app
+# Setup app
 app = Flask(__name__, template_folder='templates')
-# app.json_encoder = MyJSONEncoder
-# CORS(app)
+app.json_encoder = MyJSONEncoder
+CORS(app)
+
+# App configs
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 # Setup data fetcher
-# TODO: Move to config file
 data_fetcher = DataFetcher(
     host="hackathon-db.bdc.n360.io",
     user="events",
@@ -46,26 +48,28 @@ def index():
     '''
     return render_template('index.html')
 
+
 def MSCluster(df):
     X = df.values
     k1 = MeanShift().fit(X=X)
     return k1.predict(X)
 
+
 @app.route("/requirements", methods=['POST'])
 def requirements():
     data = json.loads(request.data)
-    inventory = data_fetcher.get_car_inventory(price_low=data['low'], price_high=data['high'], as_df=False)
-
+    inventory = data_fetcher.get_car_inventory(price_low=data['low'], price_high=data['high'])
     # ML code goes here
-    # clu_labels = MSCluster(inventory)
+    clu_labels = MSCluster(inventory)
 
+    return jsonify(inventory)
 
-#     return jsonify(inventory)
 
 @app.route("/car_info/<int:car_id>", methods=['GET'])
-def get_info(car_id):
-    car_info = data_fetcher.get_car_info(car_id)
-    return jsonify(car_info)
+def car_info(car_id):
+    info = data_fetcher.get_car_info(car_id)
+
+    return jsonify(info)
 
 
 if __name__ == '__main__':

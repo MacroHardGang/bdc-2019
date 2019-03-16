@@ -33,7 +33,7 @@ CORS(app)
 data_fetcher = DataFetcher(
     host="hackathon-db.bdc.n360.io",
     user="events",
-    passwd="Hack@th0n2019",
+    password="Hack@th0n2019",
     port=3306,
     db="hackathon",
 )
@@ -54,7 +54,7 @@ def MSCluster(df):
 @app.route("/requirements", methods=['POST'])
 def requirements():
     data = json.loads(request.data)
-    inventory = data_fetcher.get_car_inventory(price_low=data['low'], price_high=data['high'])
+    inventory = data_fetcher.get_car_inventory(price_low=data['low'], price_high=data['high'], as_df=False)
 
     # ML code goes here
     clu_labels = MSCluster(inventory)

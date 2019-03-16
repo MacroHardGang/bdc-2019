@@ -4,8 +4,7 @@
     "description": "McGill AI Society content management system.",
     "main": "server.js",
     "scripts": {
-        "start": "node app.js",
-        "build": "webpack --config webpack.config.js"
+        "start": "webpack-dev-server --content-base public --hot --inline"
     },
     "author": "John Wu",
     "dependencies": {

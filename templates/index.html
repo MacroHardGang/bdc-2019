@@ -31,7 +31,7 @@
 				<p class="intro-text">
 					360.Agency
 				</p>
-				<a href="#questionaire" class="page-scroll" id="intro-button">
+				<a href="#questionaire" class="page-scroll" class="intro-button">
                     Let's get started
 				</a>
 			</div>
@@ -53,93 +53,96 @@
                 <input class="input100" type="number" name="price-range-min" placeholder="MAX" step="0.01"/>
 			</div>
 			
-				<legend>
-				  Type of car
-				</legend>
-				<label> <input type="radio" name="type-car" value="Sedan"> Sedan </label>
-				<label> <input type="radio" name="type-car" value="Fullsize"> Fullsize </label>
-				<label> <input type="radio" name="type-car" value="Mini-Van"> Mini-Van </label>
-				<label> <input type="radio" name="type-car" value="Van"> Van </label>
-				<label> <input type="radio" name="type-car" value="Convertible"> Convertible </label>
-				<label> <input type="radio" name="type-car" value="Midsize"> Midsize </label>
-				<label> <input type="radio" name="type-car" value="Jeep"> Jeep </label>
-				
-            <div class="class-contact100-form-btn">
-                <button className="contact100-form-btn">
-                    <span>
-                        Submit
-                    </span>
-                </button>
-            </div>
-			</fieldset>
-			
 			<fieldset>
 				<legend>
-					Please select gender
+					Type of Car 
 				</legend>
-				<input type="radio" name="gender" class="sr-only radio-img" id="male">
-				<label for="male">
-					<img src="http://findicons.com/files/icons/1688/web_blog/48/user_male_white_red_brown.png" alt="male">
-				</label>
-				<input type="radio" name="gender" class="sr-only radio-img" id="female">
-				<label for="female">
-					<img src="http://findicons.com/files/icons/1688/web_blog/48/user_female_white_pink_black.png" alt="female">
-				</label>
-				</fieldset>
+				<div class="row">
+					<div class="col-md-3">
+						<input type="radio" name="type-car" class="sr-only radio-img" id="sedan">
+						<label for="sedan">
+							<img src="https://i.dlpng.com/static/png/270944_preview.png">
+						</label>
+					</div>
+					<div class="col-md-3">
+						<input type="radio" name="type-car" class="sr-only radio-img" id="minivan">
+						<label for="minivan">
+							<img src="https://di-uploads-pod10.dealerinspire.com/oneillhonda/uploads/2018/09/Odyssey-EX.png">
+						</label>
+					</div>
+					<div class="col-md-3">
+						<input type="radio" name="type-car" class="sr-only radio-img" id="convertible">
+						<label for="convertible">
+							<img src="https://st.motortrend.com/uploads/sites/10/2016/09/2017-mercedes-benz-sl-450-convertible-angular-front.png">
+						</label>
+					</div>
+
+					<div class="col-md-3">
+							<input type="radio" name="type-car" class="sr-only radio-img" id="midsize">
+							<label for="midsize">
+					<img src="https://di-uploads-pod12.dealerinspire.com/universitymitsubishi/uploads/2018/06/2019-Mitsubishi-Eclipse-Cross.png">
+							</label>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-3">
+						<input type="radio" name="type-car" class="sr-only radio-img" id="mini-cooper">
+						<label for="mini-cooper">
+							<img src="https://c4d709dd302a2586107d-f8305d22c3db1fdd6f8607b49e47a10c.ssl.cf1.rackcdn.com/thumbnails/stock-images/b7fcd1acd94e51eee92cfc52b14d29ed.png">
+						</label>
+					</div>
+					<div class="col-md-3">
+						<input type="radio" name="type-car" class="sr-only radio-img" id="sports">
+						<label for="sports">
+							<img src="https://i3.wp.com/exportcarfromuk.com/wp-content/uploads/2017/05/Aventador-Transparent-Background.png">
+						</label>
+					</div>
+					<div class="col-md-3">
+						<input type="radio" name="type-car" class="sr-only radio-img" id="jeep">
+						<label for="jeep">
+							<img src="https://sitejerk.com/images/jeep-wrangler-for-sale-by-owner-6.png">
+						</label>
+					</div>
+
+					<div class="col-md-3">
+							<input type="radio" name="type-car" class="sr-only radio-img" id="fullsize">
+							<label for="fullsize">
+					<img src="https://es.toppng.com/public/uploads/preview/car-png-11545045307loxqxkku4n.png">
+							</label>
+						</div>
+				</div>
+	
+
+				<button class="btn">
+					<span>
+						Submit
+					</span>
+				</button>
         </form>
 	</div>
 
-	<div id="output">	
+</section>
 
-		<h2 class="text-center">Car Selections that matches your preferences the best</h2>
+<section id="output" >	
+	<h2 class="text-center">Cars that match you the best</h2>
 
-		<div class="row">
-				<div class="col-md-4">
-				<div class="thumbnail">
-					<a href="/w3images/lights.jpg" target="_blank">
-					<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAM1BMVEXMzMzPz8+vr6/Ly8vAwMCRkZHDw8PGxsaWlpaenp6Tk5PFxcW2trahoaG+vr66urqoqKhkZDrBAAAFEklEQVR4nO2d23akOAxFLdn4Ar79/9e2ZFNAJZNK90Nq6Jmzs0IokImOZcvmRWUMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgRyHh5emLdvTZ+Nt2b6f1NRZn9XTjuPZtXLWcluJeNCPX45qy/Wjc0hqb/VmX/4wWl6RO6XlaYlrScI/1NL6QuMU1prjwB+MmsmPMP+/3b0NpzSG0pQRDbel+62uWUeYkrCGv5csBR33tPtSkui7GoawuuDWFd2p4jR9RII7e2KSO2SJBtH3ZSGNzeLpPrkNxSBprqtIfF2PpJOmfebwL0xnKiycXOw2xlUKJetoi754GZhXr+TH+prHZpPnFWCLr9Wr8OvhvJzj1nHr0VOPoeSdhCWn6P/8oaQSnHMGxfrRrz8ZUxvi0Pd5HoeIdr92KtyNXaFi2GbxwKnRxtVSXfs2Sm8tR5u/FmNIwsH29lUJa1jVtMlLXsVDYhcmPdCMzszyMLK9siwzgS7siDeXCxZhi3zPxeyV8gyqMbGUu2vmRJf+M1YNKOmLmYuqxP7VL0lAUudOY5upBvNxqRTRkc5R5eMbQfI6hhniNz4sAUUsyd/8xhvdSqJlmqSJhzMMg89DPqSVOX0al7Hc+zi5ZF/hqvCuUIX2feVjbiEtbmqT7Mdo0l26fcqns0mS2nn77fAR8u+bScrdcKstE1b9N18O0r4dtX+LMuR5qqoxp5aNdnuuGPdZDM9fDqMK3lO6jMI9JNPY0c5tiiuRV2aZoLHiph2WOvcW0PT7WuT3Y9zQPYxHeSK/ybRTKrEueaFt1dLG4K2NVE6YciXyKp11aNtPPIEpIG2n43JOxj0n2d+nVlv3dyD4rjncL7XR5zSjLTJh9iXLajrdFXiRmYT1cl/3Bmso6g3Uxloxb4tkRdyBwEl9HjjFVnCtTVegiNx85PywyjFXnmVxzkhelKeVibOUVM/KNXi0Eu3n/8Cicp9a7i5/WbWMZcJfht/l58dnYeu/vthgCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAG6Oz+fxL8M59zs15twowOc+1EwMo9Bb8G48ZTxo89IRj/t2L/u2OS2b7rUyY3h3UUKKzN3PcvJn0WuaB3pUwiY6FNLDRH/ZjYuNS+c6itTakoiO6pgsVGNqF8woRGx5eXNhSfGGciYu4jtbcsZ2olp6MNRz8pa1EqHthadC8dTRxhKQWS3UkVHx8yRyIBF7KszyxBBM6PJYzlS40fb28qdTobgiEnKzUcNUu/S6+MmishkJjhzLVJi875teyjwUZhmeeSjUYsONbQ9nDGmv4+tGBcZCKXTL7d3lwMcoDWV4YHvtuVXizhzFz/0uay/UY5RKuFw3rHNqWKrBVJhMqcP4K4XEtZh3F3ilJDlCXCHxQIaR7+yJ2Tuv0R135XYyTwrFW97rQjsicodCyrGeCuVqJZ2vW7eji9IonP5+hfoPa5EfGZMSm6LzpqrXeiezyxJUrmkqjDlrvWQ3C6E+Ms2hkGgco9d+iWRLljQkT+kyPe3oMnq7QjNWOEkQWtrUVeO19m6QKM47tnGWBJi5zlrSLWsV5TkLtWdUaKj7Sd4fSCOFknwMmUe15so5nPf/HZ479vJVJB++N8HMIvTfPOzydSifHvg34FP9uxz+c/7r+gD4H/ELtGoozZ2ClhcAAAAASUVORK5CYII=" alt="Lights" style="width:100%">
-					<div class="caption">
-						<p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
-					</div>
-					</a>
-				</div>
-				</div>
-				<div class="col-md-4">
-				<div class="thumbnail">
-					<a href="/w3images/nature.jpg" target="_blank">
-					<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAM1BMVEXMzMzPz8+vr6/Ly8vAwMCRkZHDw8PGxsaWlpaenp6Tk5PFxcW2trahoaG+vr66urqoqKhkZDrBAAAFEklEQVR4nO2d23akOAxFLdn4Ar79/9e2ZFNAJZNK90Nq6Jmzs0IokImOZcvmRWUMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgRyHh5emLdvTZ+Nt2b6f1NRZn9XTjuPZtXLWcluJeNCPX45qy/Wjc0hqb/VmX/4wWl6RO6XlaYlrScI/1NL6QuMU1prjwB+MmsmPMP+/3b0NpzSG0pQRDbel+62uWUeYkrCGv5csBR33tPtSkui7GoawuuDWFd2p4jR9RII7e2KSO2SJBtH3ZSGNzeLpPrkNxSBprqtIfF2PpJOmfebwL0xnKiycXOw2xlUKJetoi754GZhXr+TH+prHZpPnFWCLr9Wr8OvhvJzj1nHr0VOPoeSdhCWn6P/8oaQSnHMGxfrRrz8ZUxvi0Pd5HoeIdr92KtyNXaFi2GbxwKnRxtVSXfs2Sm8tR5u/FmNIwsH29lUJa1jVtMlLXsVDYhcmPdCMzszyMLK9siwzgS7siDeXCxZhi3zPxeyV8gyqMbGUu2vmRJf+M1YNKOmLmYuqxP7VL0lAUudOY5upBvNxqRTRkc5R5eMbQfI6hhniNz4sAUUsyd/8xhvdSqJlmqSJhzMMg89DPqSVOX0al7Hc+zi5ZF/hqvCuUIX2feVjbiEtbmqT7Mdo0l26fcqns0mS2nn77fAR8u+bScrdcKstE1b9N18O0r4dtX+LMuR5qqoxp5aNdnuuGPdZDM9fDqMK3lO6jMI9JNPY0c5tiiuRV2aZoLHiph2WOvcW0PT7WuT3Y9zQPYxHeSK/ybRTKrEueaFt1dLG4K2NVE6YciXyKp11aNtPPIEpIG2n43JOxj0n2d+nVlv3dyD4rjncL7XR5zSjLTJh9iXLajrdFXiRmYT1cl/3Bmso6g3Uxloxb4tkRdyBwEl9HjjFVnCtTVegiNx85PywyjFXnmVxzkhelKeVibOUVM/KNXi0Eu3n/8Cicp9a7i5/WbWMZcJfht/l58dnYeu/vthgCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAG6Oz+fxL8M59zs15twowOc+1EwMo9Bb8G48ZTxo89IRj/t2L/u2OS2b7rUyY3h3UUKKzN3PcvJn0WuaB3pUwiY6FNLDRH/ZjYuNS+c6itTakoiO6pgsVGNqF8woRGx5eXNhSfGGciYu4jtbcsZ2olp6MNRz8pa1EqHthadC8dTRxhKQWS3UkVHx8yRyIBF7KszyxBBM6PJYzlS40fb28qdTobgiEnKzUcNUu/S6+MmishkJjhzLVJi875teyjwUZhmeeSjUYsONbQ9nDGmv4+tGBcZCKXTL7d3lwMcoDWV4YHvtuVXizhzFz/0uay/UY5RKuFw3rHNqWKrBVJhMqcP4K4XEtZh3F3ilJDlCXCHxQIaR7+yJ2Tuv0R135XYyTwrFW97rQjsicodCyrGeCuVqJZ2vW7eji9IonP5+hfoPa5EfGZMSm6LzpqrXeiezyxJUrmkqjDlrvWQ3C6E+Ms2hkGgco9d+iWRLljQkT+kyPe3oMnq7QjNWOEkQWtrUVeO19m6QKM47tnGWBJi5zlrSLWsV5TkLtWdUaKj7Sd4fSCOFknwMmUe15so5nPf/HZ479vJVJB++N8HMIvTfPOzydSifHvg34FP9uxz+c/7r+gD4H/ELtGoozZ2ClhcAAAAASUVORK5CYII=" alt="Nature" style="width:100%">
-					<div class="caption">
-						<p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
-					</div>
-					</a>
-				</div>
-				</div>
-				<div class="col-md-4">
-				<div class="thumbnail">
-					<a href="/w3images/fjords.jpg" target="_blank">
-					<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAM1BMVEXMzMzPz8+vr6/Ly8vAwMCRkZHDw8PGxsaWlpaenp6Tk5PFxcW2trahoaG+vr66urqoqKhkZDrBAAAFEklEQVR4nO2d23akOAxFLdn4Ar79/9e2ZFNAJZNK90Nq6Jmzs0IokImOZcvmRWUMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgRyHh5emLdvTZ+Nt2b6f1NRZn9XTjuPZtXLWcluJeNCPX45qy/Wjc0hqb/VmX/4wWl6RO6XlaYlrScI/1NL6QuMU1prjwB+MmsmPMP+/3b0NpzSG0pQRDbel+62uWUeYkrCGv5csBR33tPtSkui7GoawuuDWFd2p4jR9RII7e2KSO2SJBtH3ZSGNzeLpPrkNxSBprqtIfF2PpJOmfebwL0xnKiycXOw2xlUKJetoi754GZhXr+TH+prHZpPnFWCLr9Wr8OvhvJzj1nHr0VOPoeSdhCWn6P/8oaQSnHMGxfrRrz8ZUxvi0Pd5HoeIdr92KtyNXaFi2GbxwKnRxtVSXfs2Sm8tR5u/FmNIwsH29lUJa1jVtMlLXsVDYhcmPdCMzszyMLK9siwzgS7siDeXCxZhi3zPxeyV8gyqMbGUu2vmRJf+M1YNKOmLmYuqxP7VL0lAUudOY5upBvNxqRTRkc5R5eMbQfI6hhniNz4sAUUsyd/8xhvdSqJlmqSJhzMMg89DPqSVOX0al7Hc+zi5ZF/hqvCuUIX2feVjbiEtbmqT7Mdo0l26fcqns0mS2nn77fAR8u+bScrdcKstE1b9N18O0r4dtX+LMuR5qqoxp5aNdnuuGPdZDM9fDqMK3lO6jMI9JNPY0c5tiiuRV2aZoLHiph2WOvcW0PT7WuT3Y9zQPYxHeSK/ybRTKrEueaFt1dLG4K2NVE6YciXyKp11aNtPPIEpIG2n43JOxj0n2d+nVlv3dyD4rjncL7XR5zSjLTJh9iXLajrdFXiRmYT1cl/3Bmso6g3Uxloxb4tkRdyBwEl9HjjFVnCtTVegiNx85PywyjFXnmVxzkhelKeVibOUVM/KNXi0Eu3n/8Cicp9a7i5/WbWMZcJfht/l58dnYeu/vthgCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAG6Oz+fxL8M59zs15twowOc+1EwMo9Bb8G48ZTxo89IRj/t2L/u2OS2b7rUyY3h3UUKKzN3PcvJn0WuaB3pUwiY6FNLDRH/ZjYuNS+c6itTakoiO6pgsVGNqF8woRGx5eXNhSfGGciYu4jtbcsZ2olp6MNRz8pa1EqHthadC8dTRxhKQWS3UkVHx8yRyIBF7KszyxBBM6PJYzlS40fb28qdTobgiEnKzUcNUu/S6+MmishkJjhzLVJi875teyjwUZhmeeSjUYsONbQ9nDGmv4+tGBcZCKXTL7d3lwMcoDWV4YHvtuVXizhzFz/0uay/UY5RKuFw3rHNqWKrBVJhMqcP4K4XEtZh3F3ilJDlCXCHxQIaR7+yJ2Tuv0R135XYyTwrFW97rQjsicodCyrGeCuVqJZ2vW7eji9IonP5+hfoPa5EfGZMSm6LzpqrXeiezyxJUrmkqjDlrvWQ3C6E+Ms2hkGgco9d+iWRLljQkT+kyPe3oMnq7QjNWOEkQWtrUVeO19m6QKM47tnGWBJi5zlrSLWsV5TkLtWdUaKj7Sd4fSCOFknwMmUe15so5nPf/HZ479vJVJB++N8HMIvTfPOzydSifHvg34FP9uxz+c/7r+gD4H/ELtGoozZ2ClhcAAAAASUVORK5CYII=" alt="Fjords" style="width:100%">
-					<div class="caption">
-						<p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
-					</div>
-					</a>
-				</div>
-				</div>
+	<div class="row">
+		<div class="col-md-4 card">
+			<img src="https://tinyurl.com/y28rotvo" alt="John">
+			<h1>John Doe</h1>
+			<p class="title">CEO & Founder, Example</p>
+			<p>Harvard University</p>
+		</div>
 
-				<div class="col-md-4">
-				<div class="thumbnail">
-					<a href="/w3images/fjords.jpg" target="_blank">
-					<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAM1BMVEXMzMzPz8+vr6/Ly8vAwMCRkZHDw8PGxsaWlpaenp6Tk5PFxcW2trahoaG+vr66urqoqKhkZDrBAAAFEklEQVR4nO2d23akOAxFLdn4Ar79/9e2ZFNAJZNK90Nq6Jmzs0IokImOZcvmRWUMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgRyHh5emLdvTZ+Nt2b6f1NRZn9XTjuPZtXLWcluJeNCPX45qy/Wjc0hqb/VmX/4wWl6RO6XlaYlrScI/1NL6QuMU1prjwB+MmsmPMP+/3b0NpzSG0pQRDbel+62uWUeYkrCGv5csBR33tPtSkui7GoawuuDWFd2p4jR9RII7e2KSO2SJBtH3ZSGNzeLpPrkNxSBprqtIfF2PpJOmfebwL0xnKiycXOw2xlUKJetoi754GZhXr+TH+prHZpPnFWCLr9Wr8OvhvJzj1nHr0VOPoeSdhCWn6P/8oaQSnHMGxfrRrz8ZUxvi0Pd5HoeIdr92KtyNXaFi2GbxwKnRxtVSXfs2Sm8tR5u/FmNIwsH29lUJa1jVtMlLXsVDYhcmPdCMzszyMLK9siwzgS7siDeXCxZhi3zPxeyV8gyqMbGUu2vmRJf+M1YNKOmLmYuqxP7VL0lAUudOY5upBvNxqRTRkc5R5eMbQfI6hhniNz4sAUUsyd/8xhvdSqJlmqSJhzMMg89DPqSVOX0al7Hc+zi5ZF/hqvCuUIX2feVjbiEtbmqT7Mdo0l26fcqns0mS2nn77fAR8u+bScrdcKstE1b9N18O0r4dtX+LMuR5qqoxp5aNdnuuGPdZDM9fDqMK3lO6jMI9JNPY0c5tiiuRV2aZoLHiph2WOvcW0PT7WuT3Y9zQPYxHeSK/ybRTKrEueaFt1dLG4K2NVE6YciXyKp11aNtPPIEpIG2n43JOxj0n2d+nVlv3dyD4rjncL7XR5zSjLTJh9iXLajrdFXiRmYT1cl/3Bmso6g3Uxloxb4tkRdyBwEl9HjjFVnCtTVegiNx85PywyjFXnmVxzkhelKeVibOUVM/KNXi0Eu3n/8Cicp9a7i5/WbWMZcJfht/l58dnYeu/vthgCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAG6Oz+fxL8M59zs15twowOc+1EwMo9Bb8G48ZTxo89IRj/t2L/u2OS2b7rUyY3h3UUKKzN3PcvJn0WuaB3pUwiY6FNLDRH/ZjYuNS+c6itTakoiO6pgsVGNqF8woRGx5eXNhSfGGciYu4jtbcsZ2olp6MNRz8pa1EqHthadC8dTRxhKQWS3UkVHx8yRyIBF7KszyxBBM6PJYzlS40fb28qdTobgiEnKzUcNUu/S6+MmishkJjhzLVJi875teyjwUZhmeeSjUYsONbQ9nDGmv4+tGBcZCKXTL7d3lwMcoDWV4YHvtuVXizhzFz/0uay/UY5RKuFw3rHNqWKrBVJhMqcP4K4XEtZh3F3ilJDlCXCHxQIaR7+yJ2Tuv0R135XYyTwrFW97rQjsicodCyrGeCuVqJZ2vW7eji9IonP5+hfoPa5EfGZMSm6LzpqrXeiezyxJUrmkqjDlrvWQ3C6E+Ms2hkGgco9d+iWRLljQkT+kyPe3oMnq7QjNWOEkQWtrUVeO19m6QKM47tnGWBJi5zlrSLWsV5TkLtWdUaKj7Sd4fSCOFknwMmUe15so5nPf/HZ479vJVJB++N8HMIvTfPOzydSifHvg34FP9uxz+c/7r+gD4H/ELtGoozZ2ClhcAAAAASUVORK5CYII=" alt="Fjords" style="width:100%">
-					<div class="caption">
-						<p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
-					</div>
-					</a>
-				</div>
-				</div>
-			</div>	
-
+		<div class="col-md-4 card">
+			<img src="https://tinyurl.com/y28rotvo" alt="John">
+			<h1>John Doe</h1>
+			<p class="title">CEO & Founder, Example</p>
+			<p>Harvard University</p>
+		</div>
 	</div>
 
-</div>
 </section>
 <!-- jQuery -->
 <script src="./static/js/jquery.js"></script>

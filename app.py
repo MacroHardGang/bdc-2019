@@ -1,11 +1,29 @@
+import decimal
+import flask
+import json
+
 from data_fetchers import DataFetcher
-from flask import Flask
+from flask import (
+    Flask,
+    jsonify,
+    request,
+    render_template
+)
 from flask_cors import CORS
 from IPython import embed
 
 
+class MyJSONEncoder(flask.json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, decimal.Decimal):
+            # Convert decimal instances to strings.
+            return str(obj)
+        return super(MyJSONEncoder, self).default(obj)
+
+
 # Setup app
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates')
+app.json_encoder = MyJSONEncoder
 CORS(app)
 
 # Setup data fetcher
@@ -23,22 +41,16 @@ data_fetcher = DataFetcher(
 def index():
     '''
     Landing page
-    TODO: route to landing page for dev, static page for prod
     '''
-    return ""
+    return render_template('index.html')
 
 
 @app.route("/requirements", methods=['POST'])
 def requirements():
-    # Mock
-    price = {
-        'low': 13000,
-        'high': 33000
-    }
+    data = json.loads(request.data)
+    inventory = data_fetcher.get_car_inventory(price_low=data['low'], price_high=data['high'], as_df=False)
 
-    car_type = 'blah'
-    inventory = data_fetcher.get_car_inventory(price_low=price['low'], price_high=price['high'])
-    return inventory
+    return jsonify(inventory)
 
 
 if __name__ == '__main__':

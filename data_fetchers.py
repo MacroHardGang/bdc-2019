@@ -71,3 +71,14 @@ class DataFetcher:
         res = self._query(query, 'car_inventory', as_df=kwargs.get('as_df', True))
 
         return res
+    
+    def get_car_info(self, car_id):
+        query = '''
+            SELECT * FROM car_inventory
+            WHERE car_id = {}
+        '''.format(
+            car_id
+        )
+        res = self._query(query, 'car_inventory', as_df=False)
+
+        return res

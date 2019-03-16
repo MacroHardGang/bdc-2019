@@ -47,7 +47,7 @@ def index():
     return render_template('index.html')
 
 def MSCluster(df):
-    X = pd.as_matrix(df)
+    X = df.values
     k1 = MeanShift().fit(X=X)
     return k1.predict(X)
 
@@ -57,10 +57,15 @@ def requirements():
     inventory = data_fetcher.get_car_inventory(price_low=data['low'], price_high=data['high'], as_df=False)
 
     # ML code goes here
-    clu_labels = MSCluster(inventory)
+    # clu_labels = MSCluster(inventory)
 
 
     return jsonify(inventory)
+
+@app.route("/car_info/<int:car_id>", methods=['GET'])
+def get_info(car_id):
+    car_info = data_fetcher.get_car_info(car_id)
+    return jsonify(car_info)
 
 
 if __name__ == '__main__':

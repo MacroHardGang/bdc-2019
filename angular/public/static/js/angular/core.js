@@ -18,7 +18,7 @@ app.controller("bdcController", function($scope, $http) {
         console.log($scope.requirementsFormData)
 
         $http
-        .post("localhost:5000/requirements", $scope.requirementsFormData)
+        .post("http://localhost:5000/requirements", $scope.requirementsFormData)
         .success(function(result) {
             $scope.requirementsFormData = {};
             console.log(results)

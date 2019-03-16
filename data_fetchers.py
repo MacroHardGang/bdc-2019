@@ -1,9 +1,10 @@
+import numpy as np
 import pymysql
 import pandas as pd
 pd.set_option('max_columns', None)
 
 from IPython import embed
-from sklearn import preprocessing
+from sklearn.cluster import KMeans
 
 
 class DataFetcher:
@@ -100,40 +101,37 @@ class DataFetcher:
                     'warranty_km']
 
         df = df.drop(drop_col, axis=1).fillna(-100)
-        # df['drive_train'] = df['drive_train'].replace('Front wheel drive', 1).astype(int)
-        # df['drive_train'] = df['drive_train'].replace('All wheel drive', 2).astype(int)
-        # df['drive_train'] = df['drive_train'].replace('Rear wheel drive', 3).astype(int)
-        # df['drive_train'] = df['drive_train'].replace('4X4', 4).astype(int)
-        # df['fuel'] = df['fuel'].replace('Unleaded', 1).astype(int)
-        # df['fuel'] = df['fuel'].replace('Premium unleaded', 2).astype(int)
-        # df['transmission_type'] = df['transmission_type'].replace('MANUAL', 0).astype(int)
-        # df['transmission_type'] = df['transmission_type'].replace('AUTOMATIC', 1).astype(int)
         df['doors'] = df['doors'].astype(int)
         df['inventory_frame_style_id'] = df['inventory_frame_style_id'].astype(int)
 
         # Encode categorical features
         df['price'] = df['price'].astype(float)
-        # le_fuel = preprocessing.LabelEncoder()
-        # le_fuel.fit(df.fuel)
-        # le_fuel.transform(df.fuel)
-        # le_transmission = preprocessing.LabelEncoder()
-        # le_transmission.fit(df.transmission_type)
-        # le_transmission.transform(df.transmission_type)
 
         return df
+
+    def _MSCluster(self, df):
+        X = df.values
+        k1 = KMeans(n_clusters=4).fit(X=X)
+        return k1.predict(X)
 
     def get_car_inventory(self, **kwargs):
         query = '''
             SELECT * FROM car_inventory
             WHERE price BETWEEN {price_low} AND {price_high}
+            AND LOWER(inventory_frame_style) = {car_type}
             AND date_sold IS NULL;
         '''.format(
             price_low=kwargs['price_low'],
-            price_high=kwargs['price_high']
+            price_high=kwargs['price_high'],
+            car_type=kwargs['car_type'].lower()
         )
         res = self._query(query, 'car_inventory', as_df=kwargs.get('as_df', True))
         if isinstance(res, pd.DataFrame):
             res = self._preprocess_car_inventory(res)
+            labels = self._MSCluster(res)
+            res['LABEL'] = labels
+            res = res.groupby('LABEL', as_index=False).apply(lambda obj: obj.loc[np.random.choice(obj.index, 10, False),:])
+            res = res.to_json()
 
         return res
 

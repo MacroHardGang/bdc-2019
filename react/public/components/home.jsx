@@ -15,8 +15,8 @@ class HomePage extends React.Component {
         this.setState({
             showQuestionnaire: true
         })
-        const element = document.getElementById(questionnaire);
-        element.scrollIntoView({behavior: 'smooth'});
+        const element = document.getElementById('questionnaire')
+        element.scrollIntoView({behavior: 'smooth'})
     }
 
     render() {

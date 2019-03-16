@@ -4,7 +4,6 @@ class QuestionairePage extends React.Component {
     render() {
 
         return(
-            <div id="questionaire">
             <div className="container content-section white-section">
                 <div className="row justify-content-center">
                     <h2 className="text-center white-section-header">
@@ -27,7 +26,6 @@ class QuestionairePage extends React.Component {
                         </div>
                     </form>
                 </div>
-            </div>
             </div>
         )
     }

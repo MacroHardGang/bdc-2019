@@ -20,7 +20,7 @@ class App extends React.Component {
       <Router>
           <div>
               <div id="content-wrapper">
-                <Route path="/" exact={true} component={QuestionairePage}/>
+                <Route path="/" exact={true} component={HomePage}/>
                 <Route path="/questionaire" exact={true} component={QuestionairePage} />
                 <Route path="/selection" exact={true} component={SelectionPage} />
                 <Route path="/results" exact={true} component={ResultsPage} />

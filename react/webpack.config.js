@@ -4,7 +4,7 @@ var config = {
   entry: './public/main.js',
   output: {
     path: path.resolve(__dirname),
-    filename: 'public/index.js',
+    filename: 'bundle.js',
     crossOriginLoading: 'anonymous',
   },
   mode: 'development',

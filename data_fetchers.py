@@ -110,6 +110,7 @@ class DataFetcher:
         return df
 
     def _MSCluster(self, df):
+        df = self._preprocess_car_inventory(df)
         X = df.values
         k1 = KMeans(n_clusters=4).fit(X=X)
         return k1.predict(X)
@@ -127,7 +128,6 @@ class DataFetcher:
         )
         res = self._query(query, 'car_inventory', as_df=kwargs.get('as_df', True))
         if isinstance(res, pd.DataFrame):
-            res = self._preprocess_car_inventory(res)
             labels = self._MSCluster(res)
             res['LABEL'] = labels
             res = res.groupby('LABEL', as_index=False).apply(lambda obj: obj.loc[np.random.choice(obj.index, 10, False),:])

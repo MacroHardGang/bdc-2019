@@ -3,30 +3,30 @@ import flask
 import json
 import pandas as pd
 
-from data_fetchers import DataFetcher
+# from data_fetchers import DataFetcher
 from flask import (
     Flask,
     jsonify,
     request,
     render_template
 )
-from flask_cors import CORS
-from sklearn.cluster import MeanShift
-from IPython import embed
+# from flask_cors import CORS
+# from sklearn.cluster import MeanShift
+# from IPython import embed
 
 
-class MyJSONEncoder(flask.json.JSONEncoder):
-    def default(self, obj):
-        if isinstance(obj, decimal.Decimal):
-            # Convert decimal instances to strings.
-            return str(obj)
-        return super(MyJSONEncoder, self).default(obj)
+# class MyJSONEncoder(flask.json.JSONEncoder):
+#     def default(self, obj):
+#         if isinstance(obj, decimal.Decimal):
+#             # Convert decimal instances to strings.
+#             return str(obj)
+#         return super(MyJSONEncoder, self).default(obj)
 
 
-# Setup app
+# # Setup app
 app = Flask(__name__, template_folder='templates')
-app.json_encoder = MyJSONEncoder
-CORS(app)
+# app.json_encoder = MyJSONEncoder
+# CORS(app)
 
 # Setup data fetcher
 # TODO: Move to config file
@@ -60,7 +60,7 @@ def requirements():
     # clu_labels = MSCluster(inventory)
 
 
-    return jsonify(inventory)
+#     return jsonify(inventory)
 
 @app.route("/car_info/<int:car_id>", methods=['GET'])
 def get_info(car_id):

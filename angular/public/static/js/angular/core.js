@@ -11,28 +11,24 @@ app.controller("bdcController", function($scope, $http) {
 
     $scope.results = [
         {
-            'id': '0',
             'photo': 'https://tinyurl.com/y28rotvo',
             'model': 'Honda Civic',
             'price': '$500',
             'year': '2015'
         },
         {
-            'id': '1',
             'photo': 'https://tinyurl.com/y28rotvo',
             'model': 'Honda Civic',
             'price': '$500',
             'year': '2015'
         },
         {
-            'id': '2',
             'photo': 'https://tinyurl.com/y28rotvo',
             'model': 'Honda Civic',
             'price': '$500',
             'year': '2015'
         },
         {
-            'id': '3',
             'photo': 'https://tinyurl.com/y28rotvo',
             'model': 'Honda Civic',
             'price': '$500',
@@ -52,8 +48,19 @@ app.controller("bdcController", function($scope, $http) {
         .post("http://localhost:5000/requirements", $scope.requirementsFormData)
         .success(function(result) {
             $scope.requirementsFormData = {};
-            console.log(JSON.parse(result))
+
+            var results = JSON.parse(result);
+            for(var i=0;i<18;i++) {
+                var car = {
+                    'photo': 'https://tinyurl.com/y28rotvo',
+                    'model': results.inventory_make_id,
+                    'year': results.car_year,
+                    'price': results.price
+                };
+                $scope.results.push(car);
+            }
         });
+
 
     };
 

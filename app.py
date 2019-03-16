@@ -60,6 +60,7 @@ def requirements():
     data = json.loads(request.data)
     inventory = data_fetcher.get_car_inventory(price_low=data['low'], price_high=data['high'])
     # ML code goes here
+    embed()
     clu_labels = MSCluster(inventory)
 
     return jsonify(inventory)

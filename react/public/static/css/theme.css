@@ -4,8 +4,8 @@ body {
 	height:100%;
 	font-family:Open Sans,"Helvetica Neue",Helvetica,Arial,sans-serif;
 	color:#fff;
-	background-color:#000;
-	 font-weight:300;
+	background-color:white;
+	font-weight:300;
 }
 html {
 	width:100%;
@@ -333,4 +333,16 @@ section {
 	border-bottom:2px solid lightseagreen;
 	outline:0;
 	outline: none;
+}
+
+.white-section {
+	background-color: white;
+}
+
+.white-section-header {
+	color: #383838;
+}
+
+.content-section {
+	width: 100%;
 }

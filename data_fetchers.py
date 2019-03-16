@@ -59,6 +59,58 @@ class DataFetcher:
 
         return res
 
+    def _preprocess_car_inventory(self, df):
+        drop_col = ['car_id',
+                    'inventory_id',
+                    'inventory_make',
+                    'inventory_model',
+                    'commercial',
+                    'vehicle_page_views',
+                    'car_int_photo_url1',
+                    'car_int_photo_url2',
+                    'car_int_photo_url3',
+                    'car_ext_photo_url1',
+                    'car_ext_photo_url2',
+                    'car_ext_photo_url3',
+                    'date_created',
+                    'inventory_trim',
+                    'car_status',
+                    'inventory_frame_category_id',
+                    'inventory_frame_category',
+                    'inventory_frame_style',
+                    'inventory_frame_desc',
+                    'note',
+                    'option',
+                    'extra_option',
+                    'date_entry',
+                    'date_updated',
+                    'date_service',
+                    'date_sold',
+                    'inventory_color',
+                    'inventory_interior_color',
+                    'induction',
+                    'cubic_capacity',
+                    'warranty_class',
+                    'warranty_date',
+                    'warranty_km']
+
+        df = df.drop(drop_col, axis=1).fillna(-100)
+        embed()
+        df['engine_type'] = df['engine_type'].replace('V6', 6).astype(int)
+        df['engine_type'] = df['engine_type'].replace('V8', 8).astype(int)
+        df['drive_train'] = df['drive_train'].replace('Front wheel drive', 1).astype(int)
+        df['drive_train'] = df['drive_train'].replace('All wheel drive', 2).astype(int)
+        df['drive_train'] = df['drive_train'].replace('Rear wheel drive', 3).astype(int)
+        df['drive_train'] = df['drive_train'].replace('4X4', 4).astype(int)
+        df['fuel'] = df['fuel'].replace('Unleaded', 1).astype(int)
+        df['fuel'] = df['fuel'].replace('Premium unleaded', 2).astype(int)
+        df['transmission_type'] = df['transmission_type'].replace('MANUAL', 0).astype(int)
+        df['transmission_type'] = df['transmission_type'].replace('AUTOMATIC', 1).astype(int)
+        df['doors'] = df['doors'].astype(int)
+        df['inventory_frame_style_id'] = df['inventory_frame_style_id'].astype(int)
+
+        return df
+
     def get_car_inventory(self, **kwargs):
         query = '''
             SELECT * FROM car_inventory
@@ -69,6 +121,8 @@ class DataFetcher:
             price_high=kwargs['price_high']
         )
         res = self._query(query, 'car_inventory', as_df=kwargs.get('as_df', True))
+        if isinstance(res, pd.DataFrame):
+            res = self._preprocess_car_inventory(res)
 
         return res
 
